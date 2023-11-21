@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.get('/', async (req, res) => {
   res.status(200).send({
-    message: 'Hello from CodeX!'
+    message: 'Olá do CodeX!'
   })
 })
 
@@ -30,16 +30,16 @@ app.post('/', async (req, res) => {
     // Customize the prompt based on the specified topic
     switch (topic) {
       case 'academia':
-        prompt = 'Discuss the latest trends and advancements in academia.';
+        prompt = 'Discuta as últimas tendências e avanços na academia.';
         break;
       case 'fisiculturismo':
-        prompt = 'Provide information on effective fisiculturismo training techniques.';
+        prompt = 'Forneça informações sobre técnicas eficazes de treinamento fisiculturismo.';
         break;
       case 'saude':
-        prompt = 'Discuss the importance of maintaining a healthy lifestyle for overall well-being.';
+        prompt = 'Discuta a importância de manter um estilo de vida saudável para o bem-estar geral.';
         break;
       default:
-        prompt = 'Default prompt for general queries.';
+        prompt = 'Prompt padrão para consultas gerais.';
     }
 
     const response = await openai.createCompletion({
@@ -58,8 +58,8 @@ app.post('/', async (req, res) => {
 
   } catch (error) {
     console.error(error)
-    res.status(500).send(error || 'Something went wrong');
+    res.status(500).send(error || 'Algo deu errado');
   }
 })
 
-app.listen(5000, () => console.log('AI server started on http://localhost:5000'))
+app.listen(5000, () => console.log('Servidor de IA iniciado em http://localhost:5000'))
